@@ -76,6 +76,13 @@ kbd{font:inherit;font-size:.8em;border:1px solid var(--line);border-bottom-width
 @media (max-width:600px){nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}nav a{white-space:nowrap}body{font-size:15px;padding:18px 14px 60px}th,td{padding:6px 8px}.comment{padding:12px 14px}}
 @media print{nav,.bar,.tbar,.fc{display:none}td.cov,td.cov *{color:inherit!important;background:none!important}}
 
+.de{display:block;color:#475569;font-style:italic;font-size:.93rem;margin:-6px 0 14px!important;line-height:1.5!important;border-left:3px solid #d6cfc5;padding-left:10px}
+.angde{margin-top:6px;color:#475569}
+.dehint{background:var(--head);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:10px;line-height:1.6}
+.ctl-de .ctl-read{display:flex}
+#viewSheet .comment .de{display:none}
+#viewSheet .comment.show-de .de{display:block}
+.detoggle{margin-top:6px}
 .switch{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0 8px;display:flex;justify-content:flex-start}
 .seg{display:inline-flex;background:var(--head);border:1px solid var(--line);border-radius:999px;padding:3px}
 .seg button{border:0;background:transparent;border-radius:999px;padding:7px 18px;font-weight:600;color:var(--muted)}
@@ -1219,6 +1226,26 @@ var TEXTS=[
  notes:['Imperativ (tú) für Ratschläge: <em>desayuna, come, bebe, haz, sal, ve, relájate</em>.','Andere Ratschlag-Formen zur Abwechslung: <em>te recomiendo, es importante, no tienes que, lo más importante es</em>.','Adverbien auf -mente: <em>perfectamente, sanamente, regularmente</em>.','Eigene Erfahrung im Imperfecto (<em>estaba, me dolía, pasaba</em>) macht die Tipps glaubwürdig.']}
 ];
 
+TEXTS[0].angabeDe='Wie war eure Kindheit? Was habt ihr in eurer Freizeit gemacht? Habt ihr eine lustige Anekdote?';
+TEXTS[0].de=[
+'Hallo, Lucía!',
+'Dein Beitrag über die Kindheit hat mir total gut gefallen. Beim Lesen sind mir viele Dinge aus der Zeit eingefallen, als ich klein war.',
+'Ich lebte mit meinen Eltern und meiner Schwester in einem Dorf in der Nähe von Salzburg. Wir hatten weder Handy noch Tablet, deshalb verbrachten wir fast alle Nachmittage draußen. Normalerweise spielten wir mit den Nachbarskindern Verstecken oder fuhren mit dem Rad durch den Wald. Die Sommer verbrachte ich immer bei meinen Großeltern. Meine Oma backte unglaublich leckere Kuchen und mein Opa erzählte mir vor dem Schlafengehen Geschichten.',
+'Ich habe eine lustige Anekdote: Eines Tages, als ich sieben Jahre alt war, wollten meine Schwester und ich einen Kuchen für Mamas Geburtstag backen. Wir gaben Salz statt Zucker hinein und am Ende konnte ihn niemand essen! Zum Glück lachte meine Mutter sehr und umarmte uns ganz fest.',
+'Ich glaube, dass das Leben früher ruhiger war. Heutzutage verbringen die Kinder viele Stunden vor dem Bildschirm und spielen nicht mehr so viel draußen. Ehrlich gesagt vermisse ich diese Zeit manchmal.',
+'Und du? Was war dein Lieblingsspielzeug?',
+'Viele Grüße aus Österreich! Max'];
+TEXTS[1].angabeDe='Ich bin immer müde und gestresst wegen der Prüfungen. Ich esse viel Fast Food und mache fast keinen Sport. Was empfehlt ihr mir, um gesünder zu leben?';
+TEXTS[1].de=[
+'Hallo, Javier!',
+'Ich habe gerade deinen Beitrag gelesen und verstehe dich total. Letztes Jahr war ich auch immer müde und hatte starke Rückenschmerzen, weil ich stundenlang vor dem Computer saß.',
+'Jetzt versuche ich, gesünder zu leben, und fühle mich viel besser. Deshalb hier ein paar Tipps:',
+'Erstens: Frühstücke jeden Morgen gut, zum Beispiel Obst, Joghurt oder Vollkornbrot. Iss weniger Fast Food und trink mindestens zwei Liter Wasser am Tag, statt Limonade zu trinken.',
+'Außerdem: Mach regelmäßig Sport. Du musst nicht ins Fitnessstudio gehen: Geh spazieren oder fahr mit dem Rad zur Schule. Ich spiele zweimal pro Woche Volleyball und das macht großen Spaß.',
+'Es ist auch wichtig, genug zu schlafen. Ich empfehle dir, vor elf Uhr ins Bett zu gehen und im Bett nicht aufs Handy zu schauen. Und wenn du wegen der Prüfungen gestresst bist, mach kurze Pausen und entspann dich mit Musik oder mit Freunden.',
+'Meiner Meinung nach ist das Wichtigste, langsam anzufangen. Bestimmt fühlst du dich bald besser!',
+'Und du? Welchen Sport magst du?',
+'Liebe Grüße, Lena'];
 /* ---------- data: tables ---------- */
 var VOCAB=[
 {id:'frag',title:'Fragewörter (Lesen & Hören)',head:['Español','Deutsch'],flash:'Fragewörter',rows:[
@@ -1288,14 +1315,14 @@ function norm(w,strict){w=w.toLowerCase().replace(/[¡¿!?.,;:"«»()…]/g,'');
 function buildTrainer(T){
   var wrap=document.getElementById('texts');
   var box=document.createElement('div');
-  box.innerHTML='<h3>'+T.title+'</h3><div class="angabe">'+T.angabe+'</div>'+
+  box.innerHTML='<h3>'+T.title+'</h3><div class="angabe">'+T.angabe+'<div class="angde hidden">Auf Deutsch: <em>'+T.angabeDe+'</em></div></div>'+
   '<div class="bar modes"><button data-m="read" class="on">Lesen</button><button data-m="cloze">Lücken</button><button data-m="first">Anfangsbuchstaben</button><button data-m="write">Selbst schreiben</button></div>'+
   '<div class="bar ctl-cloze hidden"><label>Lücken <input type="range" min="10" max="100" step="10" value="30" class="lvl"> <span class="lvlv">30 %</span></label><button class="shuf">Neu mischen</button><button class="all">Alle aufdecken</button></div>'+
   '<div class="bar ctl-first hidden"><button class="all">Alle aufdecken</button><span class="best">Tipp auf ein Wort, um es zu sehen.</span></div>'+
-  '<div class="bar ctl-read"><label><input type="checkbox" class="roles"> Absatz-Funktion anzeigen</label></div>'+
+  '<div class="bar ctl-de"><label><input type="checkbox" class="showde"> Deutsche Übersetzung anzeigen</label><label class="ctl-read"><input type="checkbox" class="roles"> Absatz-Funktion anzeigen</label></div>'+
   '<div class="comment view"></div>'+
-  '<div class="writebox hidden"><div class="bar"><label>Was schreibst du? <select class="part"></select></label><label><input type="checkbox" class="strict" checked> Akzente streng prüfen</label></div>'+
-  '<p class="best hint"></p><textarea placeholder="Schreib hier aus dem Gedächtnis …" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>'+
+  '<div class="writebox hidden"><div class="bar"><label>Was schreibst du? <select class="part"></select></label><label><input type="checkbox" class="strict" checked> Akzente streng prüfen</label><label><input type="checkbox" class="wde"> Deutsch als Vorlage (übersetzen)</label></div>'+
+  '<p class="best hint"></p><div class="dehint hidden"></div><textarea placeholder="Schreib hier aus dem Gedächtnis …" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>'+
   '<div class="bar"><button class="primary chkbtn">Prüfen</button><button class="clear">Leeren</button><button class="peek">Vorlage kurz zeigen</button></div><div class="result"></div></div>'+
   '<h3>Was der Text zeigt</h3><ul class="notes">'+T.notes.map(function(n){return'<li>'+n+'</li>'}).join('')+'</ul>';
   wrap.appendChild(box);
@@ -1325,6 +1352,7 @@ function buildTrainer(T){
         h+=esc(w.post)+' ';
       });
       h+='</p>';
+      if(q('.showde').checked)h+='<p class="de">'+esc(T.de[pi])+'</p>';
     });
     view.innerHTML=h;
   }
@@ -1335,11 +1363,13 @@ function buildTrainer(T){
     q('.ctl-cloze').classList.toggle('hidden',st.mode!=='cloze');
     q('.ctl-first').classList.toggle('hidden',st.mode!=='first');
     q('.ctl-read').classList.toggle('hidden',st.mode!=='read');
+    q('.ctl-de').classList.toggle('hidden',st.mode==='write');
     view.classList.toggle('hidden',st.mode==='write');
     q('.writebox').classList.toggle('hidden',st.mode!=='write');
-    render();if(st.mode==='write')updHint();
+    render();if(st.mode==='write'){updHint();updDe()}
   }});
   q('.roles').onchange=render;
+  q('.showde').onchange=function(){q('.angde').classList.toggle('hidden',!this.checked);render()};
   q('.lvl').oninput=function(){st.lvl=+this.value;q('.lvlv').textContent=st.lvl+' %';st.revealed={};render()};
   q('.shuf').onclick=function(){st.seed=Math.floor(Math.random()*1e9);save(T.id+'_seed',st.seed);st.revealed={};render()};
   box.querySelectorAll('.all').forEach(function(b){b.onclick=function(){flat.forEach(function(w){if(w.core)st.revealed[w.i]=1});render()}});
@@ -1350,7 +1380,9 @@ function buildTrainer(T){
   function refTokens(){var v=sel.value;return v==='all'?flat.filter(function(w){return w.core}):paras[+v].filter(function(w){return w.core})}
   function key(){return T.id+'_best_'+sel.value}
   function updHint(){var b=load(key(),null);q('.hint').textContent=(sel.value==='all'?'Ganzer Text':'Absatz '+(+sel.value+1))+' · '+refTokens().length+' Wörter'+(b!==null?' · Bestes Ergebnis: '+b+' %':'');q('.result').innerHTML='';}
-  sel.onchange=function(){q('textarea').value='';updHint()};
+  function updDe(){var d=q('.dehint');if(!q('.wde').checked){d.classList.add('hidden');return}d.classList.remove('hidden');d.innerHTML='<strong>Übersetze ins Spanische:</strong><br>'+esc(sel.value==='all'?T.de.join(' '):T.de[+sel.value])}
+  q('.wde').onchange=updDe;
+  sel.onchange=function(){q('textarea').value='';updHint();updDe()};
   q('.clear').onclick=function(){q('textarea').value='';q('.result').innerHTML=''};
   q('.peek').onclick=function(){
     var ref=refTokens(),txt=ref.map(function(w){return esc(w.pre+w.core+w.post)}).join(' ');
@@ -1447,6 +1479,17 @@ document.getElementById('checklist').addEventListener('change',function(e){chk[e
   btns.forEach(function(b){b.onclick=function(){show(b.dataset.v);window.scrollTo({top:0,behavior:'instant'})}});
   var v='viewSheet';try{v=localStorage.getItem('spa26_view')||v}catch(e){}
   show(v);
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('#viewSheet .comment').forEach(function(c,k){
+    var T=TEXTS[k];if(!T)return;
+    c.querySelectorAll(':scope > p').forEach(function(p,i){if(T.de[i]){var d=document.createElement('p');d.className='de';d.textContent=T.de[i];p.after(d)}});
+    var b=document.createElement('button');b.className='detoggle';b.textContent='Deutsche Übersetzung einblenden';
+    b.onclick=function(){var on=c.classList.toggle('show-de');b.classList.toggle('on',on);b.textContent=on?'Übersetzung ausblenden':'Deutsche Übersetzung einblenden'};
+    c.parentNode.insertBefore(b,c);
+  });
 })();
 </script>
 </body>
