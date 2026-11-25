@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spanisch Schularbeit 26.11. – Lernblatt &amp; Lerntrainer</title>
+<style>
+:root{--ink:#1f2328;--muted:#5b6470;--accent:#c2410c;--accent-soft:#fff3ea;--line:#e6e1da;--bg:#fbfaf7;--card:#fff;--head:#f4efe8;--ok:#15803d;--ok-soft:#e8f6ec;--bad:#b91c1c;--bad-soft:#fdecec}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0 auto;max-width:900px;padding:28px 20px 80px;color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1{font-size:1.9rem;line-height:1.25;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 14px}
+nav{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;gap:6px;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line)}
+nav a{font-size:.85rem;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+nav a:hover{border-color:var(--accent);color:var(--accent)}
+h2{font-size:1.4rem;margin:44px 0 10px;padding-top:12px;border-top:3px solid var(--accent);scroll-margin-top:70px}
+h3{font-size:1.05rem;color:var(--accent);margin:26px 0 8px}
+.tip{background:var(--accent-soft);border-left:4px solid var(--accent);padding:10px 14px;border-radius:0 6px 6px 0}
+ol.plan{padding-left:22px}ol.plan li{margin:6px 0}
+button,select{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.bar label{font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:6px;max-width:100%}
+select{max-width:100%}
+input[type=range]{accent-color:var(--accent)}
+/* texts */
+.angabe{background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;font-size:.95rem}
+.comment{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.comment-head{display:flex;align-items:center;gap:10px;padding-bottom:10px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.comment-head small{color:var(--muted)}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+.comment p{margin:8px 0;line-height:2}
+.gap{display:inline-block;border-bottom:2px solid var(--accent);color:transparent;cursor:pointer;line-height:1.3;user-select:none;background:var(--accent-soft);border-radius:3px 3px 0 0}
+.gap.first{color:var(--muted);letter-spacing:.08em;background:none}
+.rev{color:var(--accent);font-weight:600;cursor:pointer}
+.ok{background:var(--ok-soft);color:var(--ok);border-radius:3px}
+.miss{background:var(--bad-soft);color:var(--bad);border-radius:3px;text-decoration:underline wavy}
+textarea{width:100%;min-height:200px;font:inherit;line-height:1.6;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--card);resize:vertical}
+textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.score{font-weight:600;margin:8px 0}
+.best{font-size:.85rem;color:var(--muted)}
+.notes{font-size:.95rem}
+.hidden{display:none!important}
+/* flashcards */
+.fc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+.card{min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:10px;background:var(--head);cursor:pointer;padding:18px;margin:10px 0;user-select:none}
+.card .front{font-size:1.45rem;font-weight:600}
+.card .back{font-size:1.25rem;color:var(--accent);margin-top:10px;font-weight:600}
+.card .hint{font-size:.8rem;color:var(--muted);margin-top:10px}
+.prog{height:8px;background:var(--head);border-radius:99px;overflow:hidden;margin:8px 0}
+.prog div{height:100%;background:var(--ok);width:0;transition:width .3s}
+.fc .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.fc .actions button{min-width:130px;padding:9px 14px}
+.done{font-size:1.2rem;font-weight:600;color:var(--ok);padding:30px 0}
+/* tables */
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);margin:6px 0 16px;font-size:.95rem}
+th{background:var(--head);text-align:left;font-weight:600}
+th,td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#fdfcfa}
+td.cov{cursor:pointer;color:transparent;background:repeating-linear-gradient(135deg,#efe9e1 0 6px,#f6f2ec 6px 12px)!important;user-select:none}
+td.cov *{color:transparent!important}
+td.cov.peek{color:var(--accent);background:var(--accent-soft)!important}
+td.cov.peek *{color:var(--accent)!important}
+.tbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.85rem;color:var(--muted)}
+.tbar button{font-size:.8rem;padding:3px 10px}
+.wrap{overflow-x:auto}
+/* checklist */
+.check li{list-style:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:6px 0}
+.check{padding:0}.check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.check input{margin-top:6px;accent-color:var(--accent);transform:scale(1.2)}
+button kbd{background:transparent;color:inherit;border-color:currentColor;opacity:.8}
+kbd{font:inherit;font-size:.8em;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--card)}
+@media (max-width:600px){nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}nav a{white-space:nowrap}body{font-size:15px;padding:18px 14px 60px}th,td{padding:6px 8px}.comment{padding:12px 14px}}
+@media print{nav,.bar,.tbar,.fc{display:none}td.cov,td.cov *{color:inherit!important;background:none!important}}
+
+.switch{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0 8px;display:flex;justify-content:flex-start}
+.seg{display:inline-flex;background:var(--head);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:7px 18px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--accent);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+nav{top:56px!important}
+h2{scroll-margin-top:120px!important}
+#viewSheet p strong:only-child{display:block;margin-top:22px;color:var(--accent)}
+#viewSheet ul.task-list{list-style:none;padding-left:0}
+#viewSheet ul.task-list li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:6px 0}
+#viewSheet ul.task-list label{display:flex;gap:10px;align-items:flex-start}
+#viewSheet ul.task-list input{margin-top:6px;accent-color:var(--accent);transform:scale(1.2)}
+#viewSheet .comment p{line-height:1.6}
+#viewSheet td:first-child{font-weight:500}
+@media print{.switch{display:none}}
+</style>
+</head>
+<body>
+<h1>Spanisch Schularbeit 26.11.</h1>
+<p class="sub">Caminos 2 · Unidad 2 (Recuerdos de la infancia) &amp; Unidad 3 (Estar en forma) · Lesen, Hören, Schreiben</p>
+<div class="switch"><div class="seg" role="tablist"><button data-v="viewSheet" role="tab">Lernblatt</button><button data-v="viewTrainer" role="tab">Lerntrainer</button></div></div>
+<div id="viewSheet">
+
+
+<nav class="toc">
+<a href="#überblick">Überblick</a>
+<a href="#wortschatz-unidad-2-recuerdos-de-la-infancia">Wortschatz
+Kindheit</a> <a href="#wortschatz-unidad-3-estar-en-forma">Wortschatz
+Gesundheit</a>
+<a href="#grammatik-werkzeuge-fürs-schreiben">Grammatik</a>
+<a href="#blog-kommentar-aufbau-und-redemittel">Blog-Kommentar</a>
+<a href="#mustertext-1-kindheit">Mustertext 1</a>
+<a href="#mustertext-2-gesundes-leben">Mustertext 2</a>
+<a href="#checkliste-vor-der-abgabe">Checkliste</a>
+</nav>
+<h2 id="überblick">Überblick</h2>
+<p>Die Schularbeit prüft Lesen, Hören und Schreiben zu <strong>Unidad 2
+(Recuerdos de la infancia)</strong> und <strong>Unidad 3 (Estar en
+forma)</strong>. Hier findest du den Wortschatz dafür, die Bausteine für
+einen Blog-Kommentar und zwei Mustertexte.</p>
+<p><strong>Tipps für Lese- und Hörverstehen</strong></p>
+<ul>
+<li>Lies zuerst die Fragen, dann den Text. So weißt du, worauf du achten
+musst.</li>
+<li>Achte auf Zeitwörter: <em>antes, de pequeño, cuando era niño</em> =
+früher/Gewohnheit. <em>Un día, de repente, el año pasado</em> =
+einmaliges Ereignis.</li>
+<li>Achte auf Verneinungen (<em>no, nunca, nadie, ya no</em>). Sie
+drehen die Bedeutung oft um.</li>
+<li>Beim Hören: Zahlen, Uhrzeiten und Körperteile notieren, nicht ganze
+Sätze.</li>
+<li>Unbekanntes Wort? Aus dem Zusammenhang erraten und weiterlesen.</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fragewort</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>¿Qué? / ¿Cuál?</td>
+<td>Was? / Welche(r)?</td>
+</tr>
+<tr class="even">
+<td>¿Quién?</td>
+<td>Wer?</td>
+</tr>
+<tr class="odd">
+<td>¿Cuándo?</td>
+<td>Wann?</td>
+</tr>
+<tr class="even">
+<td>¿Dónde? / ¿Adónde?</td>
+<td>Wo? / Wohin?</td>
+</tr>
+<tr class="odd">
+<td>¿Por qué? / ¿Para qué?</td>
+<td>Warum? / Wozu?</td>
+</tr>
+<tr class="even">
+<td>¿Cómo?</td>
+<td>Wie?</td>
+</tr>
+<tr class="odd">
+<td>¿Cuánto/a/os/as?</td>
+<td>Wie viel(e)?</td>
+</tr>
+<tr class="even">
+<td>¿Con qué frecuencia?</td>
+<td>Wie oft?</td>
+</tr>
+<tr class="odd">
+<td>verdadero / falso / no se menciona</td>
+<td>richtig / falsch / nicht erwähnt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wortschatz-unidad-2-recuerdos-de-la-infancia">Wortschatz Unidad
+2: Recuerdos de la infancia</h2>
+<p>Mit diesen Wörtern kannst du über früher erzählen, Anekdoten
+schreiben und Märchen verstehen.</p>
+<p><strong>Erinnerungen und Zeitangaben</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>el recuerdo</td>
+<td>die Erinnerung</td>
+</tr>
+<tr class="even">
+<td>recordar (o→ue) / acordarse de</td>
+<td>sich erinnern (an)</td>
+</tr>
+<tr class="odd">
+<td>la infancia / la niñez</td>
+<td>die Kindheit</td>
+</tr>
+<tr class="even">
+<td>de pequeño/a, de niño/a</td>
+<td>als Kind</td>
+</tr>
+<tr class="odd">
+<td>cuando era pequeño/a</td>
+<td>als ich klein war</td>
+</tr>
+<tr class="even">
+<td>antes / hoy en día</td>
+<td>früher / heutzutage</td>
+</tr>
+<tr class="odd">
+<td>en aquella época / en aquel entonces</td>
+<td>damals</td>
+</tr>
+<tr class="even">
+<td>todos los veranos / cada día</td>
+<td>jeden Sommer / jeden Tag</td>
+</tr>
+<tr class="odd">
+<td>a menudo / a veces / casi nunca</td>
+<td>oft / manchmal / fast nie</td>
+</tr>
+<tr class="even">
+<td>soler + Infinitiv (solía jugar)</td>
+<td>etwas gewöhnlich tun (ich spielte meistens)</td>
+</tr>
+<tr class="odd">
+<td>ya no + Verb</td>
+<td>nicht mehr</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aktivitäten und Spiele</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>jugar al escondite</td>
+<td>Verstecken spielen</td>
+</tr>
+<tr class="even">
+<td>jugar a la pelota / al fútbol</td>
+<td>Ball / Fußball spielen</td>
+</tr>
+<tr class="odd">
+<td>jugar con muñecas / con coches</td>
+<td>mit Puppen / Autos spielen</td>
+</tr>
+<tr class="even">
+<td>montar en bici</td>
+<td>Rad fahren</td>
+</tr>
+<tr class="odd">
+<td>trepar a los árboles</td>
+<td>auf Bäume klettern</td>
+</tr>
+<tr class="even">
+<td>coleccionar cromos</td>
+<td>Sticker sammeln</td>
+</tr>
+<tr class="odd">
+<td>ver dibujos animados</td>
+<td>Zeichentrickfilme schauen</td>
+</tr>
+<tr class="even">
+<td>leer cómics / tebeos</td>
+<td>Comics lesen</td>
+</tr>
+<tr class="odd">
+<td>construir castillos de arena</td>
+<td>Sandburgen bauen</td>
+</tr>
+<tr class="even">
+<td>disfrazarse</td>
+<td>sich verkleiden</td>
+</tr>
+<tr class="odd">
+<td>hacer travesuras</td>
+<td>Streiche spielen</td>
+</tr>
+<tr class="even">
+<td>pelearse con los hermanos</td>
+<td>mit den Geschwistern streiten</td>
+</tr>
+<tr class="odd">
+<td>pasar las vacaciones en el pueblo</td>
+<td>die Ferien am Land verbringen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Personen, Orte und Dinge</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>los abuelos / los vecinos</td>
+<td>die Großeltern / die Nachbarn</td>
+</tr>
+<tr class="even">
+<td>el/la maestro/a</td>
+<td>der/die Volksschullehrer/in</td>
+</tr>
+<tr class="odd">
+<td>la guardería / el colegio</td>
+<td>der Kindergarten / die Schule</td>
+</tr>
+<tr class="even">
+<td>el patio</td>
+<td>der Schulhof, der Innenhof</td>
+</tr>
+<tr class="odd">
+<td>el juguete / el peluche</td>
+<td>das Spielzeug / das Kuscheltier</td>
+</tr>
+<tr class="even">
+<td>el columpio / el tobogán</td>
+<td>die Schaukel / die Rutsche</td>
+</tr>
+<tr class="odd">
+<td>la mascota</td>
+<td>das Haustier</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Charakter und Gefühle</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tímido/a, travieso/a, curioso/a</td>
+<td>schüchtern, frech, neugierig</td>
+</tr>
+<tr class="even">
+<td>obediente / desobediente</td>
+<td>brav / unfolgsam</td>
+</tr>
+<tr class="odd">
+<td>me encantaba / odiaba…</td>
+<td>ich liebte / hasste …</td>
+</tr>
+<tr class="even">
+<td>me daba miedo… / tenía miedo de…</td>
+<td>… machte mir Angst / ich hatte Angst vor …</td>
+</tr>
+<tr class="odd">
+<td>echar de menos</td>
+<td>vermissen</td>
+</tr>
+<tr class="even">
+<td>¡Qué tiempos!</td>
+<td>Das waren Zeiten!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Anekdoten erzählen</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>un día / una vez</td>
+<td>eines Tages / einmal</td>
+</tr>
+<tr class="even">
+<td>de repente</td>
+<td>plötzlich</td>
+</tr>
+<tr class="odd">
+<td>entonces / después / luego</td>
+<td>dann / danach</td>
+</tr>
+<tr class="even">
+<td>al final</td>
+<td>am Ende</td>
+</tr>
+<tr class="odd">
+<td>por suerte / por desgracia</td>
+<td>zum Glück / leider</td>
+</tr>
+<tr class="even">
+<td>me caí / me rompí el brazo</td>
+<td>ich fiel hin / ich brach mir den Arm</td>
+</tr>
+<tr class="odd">
+<td>me perdí</td>
+<td>ich verirrte mich</td>
+</tr>
+<tr class="even">
+<td>nos mudamos</td>
+<td>wir sind umgezogen</td>
+</tr>
+<tr class="odd">
+<td>nació mi hermano</td>
+<td>mein Bruder wurde geboren</td>
+</tr>
+<tr class="even">
+<td>me regalaron…</td>
+<td>sie schenkten mir …</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Märchen (contar cuentos)</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Había una vez… / Érase una vez…</td>
+<td>Es war einmal …</td>
+</tr>
+<tr class="even">
+<td>el rey, la reina, el príncipe, la princesa</td>
+<td>König, Königin, Prinz, Prinzessin</td>
+</tr>
+<tr class="odd">
+<td>la bruja, el lobo, el dragón</td>
+<td>Hexe, Wolf, Drache</td>
+</tr>
+<tr class="even">
+<td>el bosque, el castillo</td>
+<td>Wald, Schloss</td>
+</tr>
+<tr class="odd">
+<td>…y vivieron felices y comieron perdices.</td>
+<td>… und sie lebten glücklich bis ans Ende.</td>
+</tr>
+<tr class="even">
+<td>Colorín colorado, este cuento se ha acabado.</td>
+<td>Und so endet die Geschichte.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wortschatz-unidad-3-estar-en-forma">Wortschatz Unidad 3: Estar
+en forma</h2>
+<p>Damit kannst du über Gesundheit sprechen, Beschwerden beschreiben und
+Ratschläge geben.</p>
+<p><strong>Der Körper (el cuerpo humano)</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>la cabeza</td>
+<td>der Kopf</td>
+<td>el pecho</td>
+<td>die Brust</td>
+</tr>
+<tr class="even">
+<td>la cara</td>
+<td>das Gesicht</td>
+<td>el estómago / la barriga</td>
+<td>der Magen / der Bauch</td>
+</tr>
+<tr class="odd">
+<td>los ojos</td>
+<td>die Augen</td>
+<td>la espalda</td>
+<td>der Rücken</td>
+</tr>
+<tr class="even">
+<td>la nariz</td>
+<td>die Nase</td>
+<td>la pierna</td>
+<td>das Bein</td>
+</tr>
+<tr class="odd">
+<td>la boca / los dientes</td>
+<td>der Mund / die Zähne</td>
+<td>la rodilla</td>
+<td>das Knie</td>
+</tr>
+<tr class="even">
+<td>la oreja / el oído</td>
+<td>das Ohr (außen / innen)</td>
+<td>el pie / el tobillo</td>
+<td>der Fuß / der Knöchel</td>
+</tr>
+<tr class="odd">
+<td>el cuello / la garganta</td>
+<td>der Hals / die Kehle</td>
+<td>el corazón</td>
+<td>das Herz</td>
+</tr>
+<tr class="even">
+<td>el hombro</td>
+<td>die Schulter</td>
+<td>los pulmones</td>
+<td>die Lunge</td>
+</tr>
+<tr class="odd">
+<td>el brazo / el codo</td>
+<td>der Arm / der Ellbogen</td>
+<td>el músculo</td>
+<td>der Muskel</td>
+</tr>
+<tr class="even">
+<td>la mano / el dedo</td>
+<td>die Hand / der Finger</td>
+<td>la piel</td>
+<td>die Haut</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beschwerden</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>me duele la cabeza / me duelen los pies</td>
+<td>mir tut der Kopf / tun die Füße weh</td>
+</tr>
+<tr class="even">
+<td>tener dolor de espalda</td>
+<td>Rückenschmerzen haben</td>
+</tr>
+<tr class="odd">
+<td>estar cansado/a / estresado/a</td>
+<td>müde / gestresst sein</td>
+</tr>
+<tr class="even">
+<td>estar resfriado/a</td>
+<td>erkältet sein</td>
+</tr>
+<tr class="odd">
+<td>tener fiebre / tos</td>
+<td>Fieber / Husten haben</td>
+</tr>
+<tr class="even">
+<td>sentirse bien / mal</td>
+<td>sich gut / schlecht fühlen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gesunde und ungesunde Gewohnheiten</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Saludable (gesund)</th>
+<th>Menos saludable (ungesund)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>comer sano / equilibrado (ausgewogen)</td>
+<td>comer comida rápida / comida basura</td>
+</tr>
+<tr class="even">
+<td>comer fruta y verdura</td>
+<td>comer muchos dulces</td>
+</tr>
+<tr class="odd">
+<td>beber agua (dos litros al día)</td>
+<td>tomar refrescos / bebidas azucaradas</td>
+</tr>
+<tr class="even">
+<td>desayunar bien</td>
+<td>saltarse el desayuno (Frühstück auslassen)</td>
+</tr>
+<tr class="odd">
+<td>hacer deporte / ejercicio</td>
+<td>ser sedentario/a (sich wenig bewegen)</td>
+</tr>
+<tr class="even">
+<td>caminar, ir en bici</td>
+<td>ir a todas partes en coche</td>
+</tr>
+<tr class="odd">
+<td>dormir ocho horas</td>
+<td>acostarse muy tarde</td>
+</tr>
+<tr class="even">
+<td>relajarse, meditar, hacer yoga</td>
+<td>pasar horas delante de la pantalla</td>
+</tr>
+<tr class="odd">
+<td>hacer pausas</td>
+<td>picar entre horas (zwischendurch naschen)</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>fumar, beber alcohol</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtige Nomen und Ausdrücke</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>la salud / el bienestar</td>
+<td>die Gesundheit / das Wohlbefinden</td>
+</tr>
+<tr class="even">
+<td>la alimentación</td>
+<td>die Ernährung</td>
+</tr>
+<tr class="odd">
+<td>llevar una vida sana</td>
+<td>ein gesundes Leben führen</td>
+</tr>
+<tr class="even">
+<td>estar en forma / mantenerse en forma</td>
+<td>fit sein / fit bleiben</td>
+</tr>
+<tr class="odd">
+<td>ponerse en forma</td>
+<td>fit werden</td>
+</tr>
+<tr class="even">
+<td>el gimnasio / el entrenamiento</td>
+<td>das Fitnessstudio / das Training</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ratschläge geben und erfragen</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>¿Qué me recomiendas / aconsejas?</td>
+<td>Was empfiehlst du mir?</td>
+</tr>
+<tr class="even">
+<td>¿Qué puedo hacer para…?</td>
+<td>Was kann ich tun, um …?</td>
+</tr>
+<tr class="odd">
+<td>¿Tienes algún consejo?</td>
+<td>Hast du einen Tipp?</td>
+</tr>
+<tr class="even">
+<td>Te recomiendo / te aconsejo + Infinitiv</td>
+<td>Ich empfehle dir …</td>
+</tr>
+<tr class="odd">
+<td>Deberías + Infinitiv</td>
+<td>Du solltest …</td>
+</tr>
+<tr class="even">
+<td>Tienes que / Hay que + Infinitiv</td>
+<td>Du musst / Man muss …</td>
+</tr>
+<tr class="odd">
+<td>Es importante / bueno / mejor + Infinitiv</td>
+<td>Es ist wichtig / gut / besser …</td>
+</tr>
+<tr class="even">
+<td>Lo mejor es + Infinitiv</td>
+<td>Am besten ist …</td>
+</tr>
+<tr class="odd">
+<td>¿Por qué no + Verb?</td>
+<td>Warum … du nicht?</td>
+</tr>
+<tr class="even">
+<td>Imperativ: ¡Come más fruta! ¡Haz deporte!</td>
+<td>Iss mehr Obst! Mach Sport!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Adverbien auf -mente, die gut in Texte passen</strong></p>
+<p>regularmente (regelmäßig), diariamente (täglich), normalmente
+(normalerweise), tranquilamente (ruhig), lentamente (langsam),
+rápidamente (schnell), sanamente (gesund), fácilmente (leicht),
+especialmente (besonders), realmente (wirklich), perfectamente
+(perfekt), afortunadamente (glücklicherweise), sinceramente (ehrlich
+gesagt).</p>
+<h2 id="grammatik-werkzeuge-fürs-schreiben">Grammatik-Werkzeuge fürs
+Schreiben</h2>
+<p>Es gibt keine eigene Grammatikaufgabe, aber im Text musst du diese
+drei Dinge richtig verwenden.</p>
+<p><strong>Imperfecto oder indefinido?</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Imperfecto</th>
+<th>Indefinido</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wofür?</td>
+<td>Beschreibung, Gewohnheit, Hintergrund („wie es war“)</td>
+<td>einmaliges, abgeschlossenes Ereignis („was passiert ist“)</td>
+</tr>
+<tr class="even">
+<td>Signalwörter</td>
+<td>antes, de pequeño, siempre, normalmente, a menudo, todos los días,
+mientras</td>
+<td>un día, una vez, de repente, ayer, el año pasado, en 2015, al
+final</td>
+</tr>
+<tr class="odd">
+<td>Beispiel</td>
+<td>De pequeño <strong>vivía</strong> en un pueblo y
+<strong>jugaba</strong> mucho fuera.</td>
+<td>Un día <strong>me caí</strong> del árbol y <strong>fui</strong> al
+hospital.</td>
+</tr>
+<tr class="even">
+<td>Endungen</td>
+<td>-ar: jug<strong>aba</strong>, jug<strong>abas</strong>,
+jug<strong>aba</strong>, jug<strong>ábamos</strong>,
+jug<strong>abais</strong>, jug<strong>aban</strong> · -er/-ir:
+viv<strong>ía</strong>, viv<strong>ías</strong> …</td>
+<td>-ar: jugu<strong>é</strong>, jug<strong>aste</strong>,
+jug<strong>ó</strong> … · -er/-ir: com<strong>í</strong>,
+com<strong>iste</strong>, com<strong>ió</strong> …</td>
+</tr>
+<tr class="odd">
+<td>Unregelmäßig</td>
+<td>ser → era, ir → iba, ver → veía</td>
+<td>ser/ir → fui, tener → tuve, hacer → hice, estar → estuve, poder →
+pude, poner → puse, decir → dije, dar → di</td>
+</tr>
+</tbody>
+</table>
+<p class="tip">
+Merksatz: Imperfecto ist die Bühne, indefinido die Handlung. <em>Hacía
+sol y jugábamos en el parque cuando, de repente, empezó a llover.</em>
+</p>
+<p><strong>Imperativo afirmativo</strong></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>tú</th>
+<th>vosotros</th>
+<th>usted</th>
+<th>ustedes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>comer</td>
+<td>come</td>
+<td>comed</td>
+<td>coma</td>
+<td>coman</td>
+</tr>
+<tr class="even">
+<td>beber</td>
+<td>bebe</td>
+<td>bebed</td>
+<td>beba</td>
+<td>beban</td>
+</tr>
+<tr class="odd">
+<td>caminar</td>
+<td>camina</td>
+<td>caminad</td>
+<td>camine</td>
+<td>caminen</td>
+</tr>
+<tr class="even">
+<td>dormir</td>
+<td>duerme</td>
+<td>dormid</td>
+<td>duerma</td>
+<td>duerman</td>
+</tr>
+<tr class="odd">
+<td>hacer</td>
+<td><strong>haz</strong></td>
+<td>haced</td>
+<td>haga</td>
+<td>hagan</td>
+</tr>
+<tr class="even">
+<td>ir</td>
+<td><strong>ve</strong></td>
+<td>id</td>
+<td>vaya</td>
+<td>vayan</td>
+</tr>
+<tr class="odd">
+<td>salir</td>
+<td><strong>sal</strong></td>
+<td>salid</td>
+<td>salga</td>
+<td>salgan</td>
+</tr>
+<tr class="even">
+<td>tener</td>
+<td><strong>ten</strong></td>
+<td>tened</td>
+<td>tenga</td>
+<td>tengan</td>
+</tr>
+<tr class="odd">
+<td>poner</td>
+<td><strong>pon</strong></td>
+<td>poned</td>
+<td>ponga</td>
+<td>pongan</td>
+</tr>
+<tr class="even">
+<td>relajarse</td>
+<td>relája<strong>te</strong></td>
+<td>relaja<strong>os</strong></td>
+<td>reláje<strong>se</strong></td>
+<td>relájen<strong>se</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Weitere unregelmäßige tú-Formen: decir → di, venir → ven, ser → sé.
+Bei reflexiven Verben hängt das Pronomen hinten dran, bei vosotros fällt
+das -d weg (<em>acostaos</em>).</p>
+<p><strong>Adverbien auf -mente</strong></p>
+<p>Weibliche Form des Adjektivs + <em>-mente</em>: tranquilo →
+tranquil<strong>a</strong>mente, fácil → fácilmente. Bei zwei Adverbien
+bekommt nur das letzte <em>-mente</em>: <em>Come lenta y
+tranquilamente.</em></p>
+<h2 id="blog-kommentar-aufbau-und-redemittel">Blog-Kommentar: Aufbau und
+Redemittel</h2>
+<p>Ein Blog-Kommentar antwortet direkt auf einen Beitrag: persönlich, in
+der tú-Form, mit eigener Erfahrung und Meinung. Arbeite jeden Punkt der
+Angabe ab und halte dich an die verlangte Wortzahl.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Teil</th>
+<th>Redemittel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Begrüßung + Bezug zum Beitrag</td>
+<td>¡Hola, Lucía! · Acabo de leer tu entrada sobre… · Me ha gustado
+mucho tu entrada. · Tu entrada me ha hecho pensar en… · Te entiendo
+perfectamente.</td>
+</tr>
+<tr class="even">
+<td>2. Eigene Erfahrung</td>
+<td>Yo también… / A mí me pasa lo mismo. · Cuando era pequeño/a… · El
+año pasado yo… · Recuerdo que…</td>
+</tr>
+<tr class="odd">
+<td>3. Meinung</td>
+<td>En mi opinión… · Creo / Pienso que… · Para mí, lo más importante es…
+· Estoy de acuerdo contigo. · No estoy de acuerdo porque…</td>
+</tr>
+<tr class="even">
+<td>4. Vergleich früher – heute</td>
+<td>Antes…, pero hoy en día… · Ya no… · Ahora… más / menos que
+antes.</td>
+</tr>
+<tr class="odd">
+<td>5. Ratschlag</td>
+<td>Te recomiendo… · Deberías… · Imperativ (¡Prueba…! ¡Haz…!) · Es
+importante…</td>
+</tr>
+<tr class="even">
+<td>6. Frage an die Person</td>
+<td>¿Y tú? ¿Qué opinas? · ¿Cuál era tu…? · ¿Qué deporte te gusta?</td>
+</tr>
+<tr class="odd">
+<td>7. Abschluss</td>
+<td>¡Un saludo desde Austria! · Un abrazo, · ¡Hasta pronto! · ¡Mucha
+suerte! + Name</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verbindungswörter, die den Text besser machen</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Español</th>
+<th>Deutsch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>además / también</td>
+<td>außerdem / auch</td>
+</tr>
+<tr class="even">
+<td>porque / como</td>
+<td>weil / da</td>
+</tr>
+<tr class="odd">
+<td>por eso / así que</td>
+<td>deshalb / also</td>
+</tr>
+<tr class="even">
+<td>pero / sin embargo</td>
+<td>aber / jedoch</td>
+</tr>
+<tr class="odd">
+<td>por un lado… por otro lado</td>
+<td>einerseits … andererseits</td>
+</tr>
+<tr class="even">
+<td>primero / después / al final</td>
+<td>zuerst / danach / zum Schluss</td>
+</tr>
+<tr class="odd">
+<td>por ejemplo</td>
+<td>zum Beispiel</td>
+</tr>
+<tr class="even">
+<td>en lugar de + Infinitiv</td>
+<td>statt zu …</td>
+</tr>
+<tr class="odd">
+<td>en resumen / en definitiva</td>
+<td>zusammengefasst</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mustertext-1-kindheit">Mustertext 1: Kindheit</h2>
+<p><strong>Angabe (Beispiel):</strong> Lucía schreibt in ihrem Blog über
+ihre Kindheit und fragt ihre Leser: <em>¿Cómo era vuestra infancia? ¿Qué
+hacíais en vuestro tiempo libre? ¿Tenéis alguna anécdota divertida?</em>
+Schreib einen Kommentar (ca. 200 Wörter).</p>
+<div class="comment">
+<div class="comment-head">
+<span class="avatar">M</span><span><strong>Max</strong><br><small>Comentario</small></span>
+</div>
+<p>¡Hola, Lucía!</p>
+<p>Me ha encantado tu entrada sobre la infancia. Al leerla, me he
+acordado de muchas cosas de cuando era pequeño.</p>
+<p>Yo vivía con mis padres y mi hermana en un pueblo cerca de Salzburgo.
+No teníamos móvil ni tableta, por eso pasábamos casi todas las tardes
+fuera. Normalmente jugábamos al escondite con los niños de los vecinos o
+montábamos en bici por el bosque. Los veranos los pasaba siempre en casa
+de mis abuelos. Mi abuela hacía unas tartas riquísimas y mi abuelo me
+contaba cuentos antes de dormir.</p>
+<p>Tengo una anécdota divertida: un día, cuando tenía siete años, mi
+hermana y yo quisimos hacer una tarta para el cumpleaños de mamá.
+Pusimos sal en lugar de azúcar y, al final, ¡nadie pudo comerla! Por
+suerte, mi madre se rió mucho y nos dio un abrazo enorme.</p>
+<p>Creo que antes la vida era más tranquila. Hoy en día los niños pasan
+muchas horas delante de la pantalla y ya no juegan tanto al aire libre.
+Sinceramente, a veces echo de menos aquella época.</p>
+<p>¿Y tú? ¿Cuál era tu juguete favorito?</p>
+<p>¡Un saludo desde Austria!<br>Max</p>
+</div>
+<p><strong>Was der Text zeigt</strong></p>
+<ul>
+<li>Imperfecto für Gewohnheiten und Beschreibung: <em>vivía, teníamos,
+jugábamos, hacía, contaba</em>.</li>
+<li>Indefinido für die Anekdote: <em>quisimos, pusimos, pudo, se rió,
+dio</em>.</li>
+<li>Signalwörter verbinden beides: <em>normalmente, siempre</em>
+gegenüber <em>un día, al final</em>.</li>
+<li>Vergleich früher – heute, eigene Meinung (<em>creo que</em>) und
+eine Frage zurück an Lucía.</li>
+</ul>
+<h2 id="mustertext-2-gesundes-leben">Mustertext 2: Gesundes Leben</h2>
+<p><strong>Angabe (Beispiel):</strong> Javier schreibt in seinem Blog:
+<em>Estoy siempre cansado y estresado por los exámenes. Como mucha
+comida rápida y casi no hago deporte. ¿Qué me recomendáis para llevar
+una vida más sana?</em> Schreib einen Kommentar (ca. 200 Wörter).</p>
+<div class="comment">
+<div class="comment-head">
+<span class="avatar">L</span><span><strong>Lena</strong><br><small>Comentario</small></span>
+</div>
+<p>¡Hola, Javier!</p>
+<p>Acabo de leer tu entrada y te entiendo perfectamente. El año pasado
+yo también estaba siempre cansada y me dolía mucho la espalda porque
+pasaba horas sentada delante del ordenador.</p>
+<p>Ahora intento vivir más sanamente y me siento mucho mejor. Por eso,
+aquí tienes algunos consejos:</p>
+<p>Primero, desayuna bien todas las mañanas, por ejemplo fruta, yogur o
+pan integral. Come menos comida rápida y bebe por lo menos dos litros de
+agua al día en lugar de tomar refrescos.</p>
+<p>Además, haz deporte regularmente. No tienes que ir al gimnasio: sal a
+caminar o ve en bici al instituto. Yo juego al voleibol dos veces por
+semana y es muy divertido.</p>
+<p>También es importante dormir lo suficiente. Te recomiendo acostarte
+antes de las once y no mirar el móvil en la cama. Y si estás estresado
+por los exámenes, haz pausas cortas y relájate con música o con
+amigos.</p>
+<p>En mi opinión, lo más importante es empezar poco a poco. ¡Seguro que
+pronto te sientes mejor!</p>
+<p>¿Y tú? ¿Qué deporte te gusta?</p>
+<p>Un abrazo,<br>Lena</p>
+</div>
+<p><strong>Was der Text zeigt</strong></p>
+<ul>
+<li>Imperativ (tú) für Ratschläge: <em>desayuna, come, bebe, haz, sal,
+ve, relájate</em>.</li>
+<li>Andere Ratschlag-Formen zur Abwechslung: <em>te recomiendo, es
+importante, no tienes que, lo más importante es</em>.</li>
+<li>Adverbien auf -mente: <em>perfectamente, sanamente,
+regularmente</em>.</li>
+<li>Eigene Erfahrung im Imperfecto (<em>estaba, me dolía, pasaba</em>)
+macht die Tipps glaubwürdig.</li>
+</ul>
+<h2 id="checkliste-vor-der-abgabe">Checkliste vor der Abgabe</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"></input>Alle Punkte der Angabe
+beantwortet?</label></li>
+<li><label><input type="checkbox"></input>Wortzahl eingehalten?</label></li>
+<li><label><input type="checkbox"></input>Begrüßung, Bezug zum Beitrag, Frage
+zurück und Abschluss mit Namen da?</label></li>
+<li><label><input type="checkbox"></input>Imperfecto für Gewohnheiten,
+indefinido für einmalige Ereignisse?</label></li>
+<li><label><input type="checkbox"></input>Imperativ richtig, vor allem die
+unregelmäßigen Formen (haz, ve, sal, ten, pon)?</label></li>
+<li><label><input type="checkbox"></input>Mindestens drei Verbindungswörter
+verwendet (además, por eso, sin embargo …)?</label></li>
+<li><label><input type="checkbox"></input>Akzente und umgedrehte Frage- und
+Ausrufezeichen (¿ ? ¡ !) gesetzt?</label></li>
+<li><label><input type="checkbox"></input>Adjektive an das Nomen angepasst
+(<em>una vida sana, los niños pequeños</em>)?</label></li>
+<li><label><input type="checkbox"></input><em>me duele</em> + Einzahl, <em>me
+duelen</em> + Mehrzahl?</label></li>
+</ul>
+<p class="tip">
+Tipp: Lerne die Mustertexte nicht auswendig. Lerne die Bausteine daraus
+und setze sie in jeder Angabe neu zusammen. ¡Mucha suerte!
+</p>
+</div>
+<div id="viewTrainer">
+
+<nav>
+<a href="#plan">Lernplan</a>
+<a href="#texte">Mustertexte</a>
+<a href="#karten">Karteikarten</a>
+<a href="#wortschatz">Wortschatz</a>
+<a href="#blog">Blog-Bausteine</a>
+<a href="#grammatik">Grammatik</a>
+<a href="#check">Checkliste</a>
+</nav>
+
+<h2 id="plan">So lernst du die Texte auswendig</h2>
+<ol class="plan">
+<li><strong>Lesen:</strong> Lies jeden Mustertext dreimal laut. Achte darauf, was jeder Absatz macht (Begrüßung, Erfahrung, Anekdote, Meinung, Frage, Gruß).</li>
+<li><strong>Lücken:</strong> Starte mit 30 % Lücken. Sag die fehlenden Wörter laut und tippe zur Kontrolle drauf. Steigere dich auf 60 % und dann 100 %.</li>
+<li><strong>Anfangsbuchstaben:</strong> Nur der erste Buchstabe jedes Worts bleibt stehen. Wenn du den Text so flüssig sprechen kannst, sitzt er fast.</li>
+<li><strong>Selbst schreiben:</strong> Schreib zuerst einzelne Absätze, dann den ganzen Text aus dem Kopf. Die Seite zeigt rot, was fehlt oder falsch geschrieben ist. Ziel: über 90 %.</li>
+<li><strong>Vokabeln und Tabellen:</strong> Nutze die Karteikarten und deck in den Tabellen eine Spalte ab. Tipp auf ein Feld, um es aufzudecken.</li>
+</ol>
+<p class="tip">Lerne in kurzen Runden: heute Abend 2 Durchgänge, morgen früh nochmal „Selbst schreiben“. Deine besten Ergebnisse werden in diesem Browser gespeichert.</p>
+
+<h2 id="texte">Mustertexte trainieren</h2>
+<div id="texts"></div>
+
+<h2 id="karten">Karteikarten</h2>
+<div class="fc">
+  <div class="bar" style="justify-content:center">
+    <label>Thema <select id="fcCat"></select></label>
+    <label>Richtung <select id="fcDir"><option value="es">Español → Deutsch</option><option value="de">Deutsch → Español</option></select></label>
+    <button id="fcRestart">Neu mischen</button>
+  </div>
+  <div class="prog"><div id="fcProg"></div></div>
+  <div id="fcInfo" class="best"></div>
+  <div id="fcCard" class="card"></div>
+  <div class="actions" id="fcActions">
+    <button id="fcAgain">Nochmal <kbd>1</kbd></button>
+    <button id="fcKnow" class="primary">Gewusst <kbd>2</kbd></button>
+  </div>
+  <p class="best">Tippen oder <kbd>Leertaste</kbd> = umdrehen</p>
+</div>
+
+<h2 id="wortschatz">Wortschatz</h2>
+<p>Mit den Knöpfen über jeder Tabelle deckst du eine Spalte ab. Tipp auf ein abgedecktes Feld, um es zu prüfen.</p>
+<div id="vocab"></div>
+
+<h2 id="blog">Blog-Kommentar: Bausteine</h2>
+<p>Ein Blog-Kommentar antwortet direkt auf einen Beitrag: persönlich, in der tú-Form, mit eigener Erfahrung und Meinung. Arbeite jeden Punkt der Angabe ab und halte dich an die verlangte Wortzahl.</p>
+<div id="blogTables"></div>
+
+<h2 id="grammatik">Grammatik-Werkzeuge fürs Schreiben</h2>
+<p>Es gibt keine eigene Grammatikaufgabe, aber im Text musst du diese drei Dinge richtig verwenden.</p>
+<div id="gramTables"></div>
+<p class="tip">Merksatz: Imperfecto ist die Bühne, indefinido die Handlung. <em>Hacía sol y jugábamos en el parque cuando, de repente, empezó a llover.</em></p>
+<p>Weitere unregelmäßige tú-Formen: decir → di, venir → ven, ser → sé. Bei reflexiven Verben hängt das Pronomen hinten dran, bei vosotros fällt das -d weg (<em>acostaos</em>).</p>
+<h3>Adverbien auf -mente</h3>
+<p>Weibliche Form des Adjektivs + <em>-mente</em>: tranquilo → tranquil<strong>a</strong>mente, fácil → fácilmente. Bei zwei Adverbien bekommt nur das letzte <em>-mente</em>: <em>Come lenta y tranquilamente.</em></p>
+
+<h3>Tipps für Lese- und Hörverstehen</h3>
+<ul>
+<li>Lies zuerst die Fragen, dann den Text. So weißt du, worauf du achten musst.</li>
+<li>Achte auf Zeitwörter: <em>antes, de pequeño, cuando era niño</em> = früher/Gewohnheit. <em>Un día, de repente, el año pasado</em> = einmaliges Ereignis.</li>
+<li>Achte auf Verneinungen (<em>no, nunca, nadie, ya no</em>). Sie drehen die Bedeutung oft um.</li>
+<li>Beim Hören: Zahlen, Uhrzeiten und Körperteile notieren, nicht ganze Sätze.</li>
+<li>Unbekanntes Wort? Aus dem Zusammenhang erraten und weiterlesen.</li>
+</ul>
+
+<h2 id="check">Checkliste vor der Abgabe</h2>
+<ul class="check" id="checklist"></ul>
+<p class="tip">Lerne die Bausteine aus den Mustertexten so gut, dass du sie in jeder Angabe neu zusammensetzen kannst. ¡Mucha suerte!</p>
+
+</div>
+<script>
+/* ---------- storage ---------- */
+function save(k,v){try{localStorage.setItem('spa26_'+k,JSON.stringify(v))}catch(e){}}
+function load(k,d){try{var v=localStorage.getItem('spa26_'+k);return v===null?d:JSON.parse(v)}catch(e){return d}}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+/* ---------- data: texts ---------- */
+var TEXTS=[
+{id:'t1',title:'Mustertext 1: Kindheit',author:'Max',
+ angabe:'<strong>Angabe (Beispiel):</strong> Lucía schreibt in ihrem Blog über ihre Kindheit und fragt ihre Leser: <em>¿Cómo era vuestra infancia? ¿Qué hacíais en vuestro tiempo libre? ¿Tenéis alguna anécdota divertida?</em> Schreib einen Kommentar (ca. 200 Wörter).',
+ paras:[
+ '¡Hola, Lucía!',
+ 'Me ha encantado tu entrada sobre la infancia. Al leerla, me he acordado de muchas cosas de cuando era pequeño.',
+ 'Yo vivía con mis padres y mi hermana en un pueblo cerca de Salzburgo. No teníamos móvil ni tableta, por eso pasábamos casi todas las tardes fuera. Normalmente jugábamos al escondite con los niños de los vecinos o montábamos en bici por el bosque. Los veranos los pasaba siempre en casa de mis abuelos. Mi abuela hacía unas tartas riquísimas y mi abuelo me contaba cuentos antes de dormir.',
+ 'Tengo una anécdota divertida: un día, cuando tenía siete años, mi hermana y yo quisimos hacer una tarta para el cumpleaños de mamá. Pusimos sal en lugar de azúcar y, al final, ¡nadie pudo comerla! Por suerte, mi madre se rió mucho y nos dio un abrazo enorme.',
+ 'Creo que antes la vida era más tranquila. Hoy en día los niños pasan muchas horas delante de la pantalla y ya no juegan tanto al aire libre. Sinceramente, a veces echo de menos aquella época.',
+ '¿Y tú? ¿Cuál era tu juguete favorito?',
+ '¡Un saludo desde Austria! Max'],
+ roles:['Begrüßung','Bezug zum Beitrag','Wie es früher war (imperfecto)','Anekdote (indefinido)','Meinung: früher – heute','Frage zurück','Gruß'],
+ notes:['Imperfecto für Gewohnheiten und Beschreibung: <em>vivía, teníamos, jugábamos, hacía, contaba</em>.','Indefinido für die Anekdote: <em>quisimos, pusimos, pudo, se rió, dio</em>.','Signalwörter verbinden beides: <em>normalmente, siempre</em> gegenüber <em>un día, al final</em>.','Vergleich früher – heute, eigene Meinung (<em>creo que</em>) und eine Frage zurück an Lucía.']},
+{id:'t2',title:'Mustertext 2: Gesundes Leben',author:'Lena',
+ angabe:'<strong>Angabe (Beispiel):</strong> Javier schreibt in seinem Blog: <em>Estoy siempre cansado y estresado por los exámenes. Como mucha comida rápida y casi no hago deporte. ¿Qué me recomendáis para llevar una vida más sana?</em> Schreib einen Kommentar (ca. 200 Wörter).',
+ paras:[
+ '¡Hola, Javier!',
+ 'Acabo de leer tu entrada y te entiendo perfectamente. El año pasado yo también estaba siempre cansada y me dolía mucho la espalda porque pasaba horas sentada delante del ordenador.',
+ 'Ahora intento vivir más sanamente y me siento mucho mejor. Por eso, aquí tienes algunos consejos:',
+ 'Primero, desayuna bien todas las mañanas, por ejemplo fruta, yogur o pan integral. Come menos comida rápida y bebe por lo menos dos litros de agua al día en lugar de tomar refrescos.',
+ 'Además, haz deporte regularmente. No tienes que ir al gimnasio: sal a caminar o ve en bici al instituto. Yo juego al voleibol dos veces por semana y es muy divertido.',
+ 'También es importante dormir lo suficiente. Te recomiendo acostarte antes de las once y no mirar el móvil en la cama. Y si estás estresado por los exámenes, haz pausas cortas y relájate con música o con amigos.',
+ 'En mi opinión, lo más importante es empezar poco a poco. ¡Seguro que pronto te sientes mejor!',
+ '¿Y tú? ¿Qué deporte te gusta?',
+ 'Un abrazo, Lena'],
+ roles:['Begrüßung','Bezug + eigene Erfahrung','Überleitung zu den Tipps','Tipp 1: Ernährung','Tipp 2: Bewegung','Tipp 3: Schlaf und Stress','Meinung + Ermutigung','Frage zurück','Gruß'],
+ notes:['Imperativ (tú) für Ratschläge: <em>desayuna, come, bebe, haz, sal, ve, relájate</em>.','Andere Ratschlag-Formen zur Abwechslung: <em>te recomiendo, es importante, no tienes que, lo más importante es</em>.','Adverbien auf -mente: <em>perfectamente, sanamente, regularmente</em>.','Eigene Erfahrung im Imperfecto (<em>estaba, me dolía, pasaba</em>) macht die Tipps glaubwürdig.']}
+];
+
+/* ---------- data: tables ---------- */
+var VOCAB=[
+{id:'frag',title:'Fragewörter (Lesen & Hören)',head:['Español','Deutsch'],flash:'Fragewörter',rows:[
+['¿Qué? / ¿Cuál?','Was? / Welche(r)?'],['¿Quién?','Wer?'],['¿Cuándo?','Wann?'],['¿Dónde? / ¿Adónde?','Wo? / Wohin?'],['¿Por qué? / ¿Para qué?','Warum? / Wozu?'],['¿Cómo?','Wie?'],['¿Cuánto/a/os/as?','Wie viel(e)?'],['¿Con qué frecuencia?','Wie oft?'],['verdadero / falso / no se menciona','richtig / falsch / nicht erwähnt']]},
+{id:'erin',title:'Kindheit: Erinnerungen und Zeitangaben',head:['Español','Deutsch'],flash:'Kindheit',rows:[
+['el recuerdo','die Erinnerung'],['recordar (o→ue) / acordarse de','sich erinnern (an)'],['la infancia / la niñez','die Kindheit'],['de pequeño/a, de niño/a','als Kind'],['cuando era pequeño/a','als ich klein war'],['antes / hoy en día','früher / heutzutage'],['en aquella época / en aquel entonces','damals'],['todos los veranos / cada día','jeden Sommer / jeden Tag'],['a menudo / a veces / casi nunca','oft / manchmal / fast nie'],['soler + Infinitiv (solía jugar)','etwas gewöhnlich tun (ich spielte meistens)'],['ya no + Verb','nicht mehr']]},
+{id:'akt',title:'Kindheit: Aktivitäten und Spiele',head:['Español','Deutsch'],flash:'Kindheit',rows:[
+['jugar al escondite','Verstecken spielen'],['jugar a la pelota / al fútbol','Ball / Fußball spielen'],['jugar con muñecas / con coches','mit Puppen / Autos spielen'],['montar en bici','Rad fahren'],['trepar a los árboles','auf Bäume klettern'],['coleccionar cromos','Sticker sammeln'],['ver dibujos animados','Zeichentrickfilme schauen'],['leer cómics / tebeos','Comics lesen'],['construir castillos de arena','Sandburgen bauen'],['disfrazarse','sich verkleiden'],['hacer travesuras','Streiche spielen'],['pelearse con los hermanos','mit den Geschwistern streiten'],['pasar las vacaciones en el pueblo','die Ferien am Land verbringen']]},
+{id:'pers',title:'Kindheit: Personen, Orte und Dinge',head:['Español','Deutsch'],flash:'Kindheit',rows:[
+['los abuelos / los vecinos','die Großeltern / die Nachbarn'],['el/la maestro/a','der/die Volksschullehrer/in'],['la guardería / el colegio','der Kindergarten / die Schule'],['el patio','der Schulhof, der Innenhof'],['el juguete / el peluche','das Spielzeug / das Kuscheltier'],['el columpio / el tobogán','die Schaukel / die Rutsche'],['la mascota','das Haustier']]},
+{id:'char',title:'Kindheit: Charakter und Gefühle',head:['Español','Deutsch'],flash:'Kindheit',rows:[
+['tímido/a, travieso/a, curioso/a','schüchtern, frech, neugierig'],['obediente / desobediente','brav / unfolgsam'],['me encantaba / odiaba...','ich liebte / hasste ...'],['me daba miedo... / tenía miedo de...','... machte mir Angst / ich hatte Angst vor ...'],['echar de menos','vermissen'],['¡Qué tiempos!','Das waren Zeiten!']]},
+{id:'anek',title:'Kindheit: Anekdoten erzählen',head:['Español','Deutsch'],flash:'Kindheit',rows:[
+['un día / una vez','eines Tages / einmal'],['de repente','plötzlich'],['entonces / después / luego','dann / danach'],['al final','am Ende'],['por suerte / por desgracia','zum Glück / leider'],['me caí / me rompí el brazo','ich fiel hin / ich brach mir den Arm'],['me perdí','ich verirrte mich'],['nos mudamos','wir sind umgezogen'],['nació mi hermano','mein Bruder wurde geboren'],['me regalaron...','sie schenkten mir ...']]},
+{id:'cuen',title:'Kindheit: Märchen (contar cuentos)',head:['Español','Deutsch'],flash:'Kindheit',rows:[
+['Había una vez... / Érase una vez...','Es war einmal ...'],['el rey, la reina, el príncipe, la princesa','König, Königin, Prinz, Prinzessin'],['la bruja, el lobo, el dragón','Hexe, Wolf, Drache'],['el bosque, el castillo','Wald, Schloss'],['...y vivieron felices y comieron perdices.','... und sie lebten glücklich bis ans Ende.'],['Colorín colorado, este cuento se ha acabado.','Und so endet die Geschichte.']]},
+{id:'body',title:'Gesundheit: Der Körper (el cuerpo humano)',head:['Español','Deutsch'],flash:'Körper',rows:[
+['la cabeza','der Kopf'],['la cara','das Gesicht'],['los ojos','die Augen'],['la nariz','die Nase'],['la boca / los dientes','der Mund / die Zähne'],['la oreja / el oído','das Ohr (außen / innen)'],['el cuello / la garganta','der Hals / die Kehle'],['el hombro','die Schulter'],['el brazo / el codo','der Arm / der Ellbogen'],['la mano / el dedo','die Hand / der Finger'],['el pecho','die Brust'],['el estómago / la barriga','der Magen / der Bauch'],['la espalda','der Rücken'],['la pierna','das Bein'],['la rodilla','das Knie'],['el pie / el tobillo','der Fuß / der Knöchel'],['el corazón','das Herz'],['los pulmones','die Lunge'],['el músculo','der Muskel'],['la piel','die Haut']]},
+{id:'besch',title:'Gesundheit: Beschwerden',head:['Español','Deutsch'],flash:'Gesundheit',rows:[
+['me duele la cabeza / me duelen los pies','mir tut der Kopf / tun die Füße weh'],['tener dolor de espalda','Rückenschmerzen haben'],['estar cansado/a / estresado/a','müde / gestresst sein'],['estar resfriado/a','erkältet sein'],['tener fiebre / tos','Fieber / Husten haben'],['sentirse bien / mal','sich gut / schlecht fühlen']]},
+{id:'gew',title:'Gesundheit: Gesunde und ungesunde Gewohnheiten',head:['Saludable (gesund)','Menos saludable (ungesund)'],rows:[
+['comer sano / equilibrado (ausgewogen)','comer comida rápida / comida basura'],['comer fruta y verdura','comer muchos dulces'],['beber agua (dos litros al día)','tomar refrescos / bebidas azucaradas'],['desayunar bien','saltarse el desayuno (Frühstück auslassen)'],['hacer deporte / ejercicio','ser sedentario/a (sich wenig bewegen)'],['caminar, ir en bici','ir a todas partes en coche'],['dormir ocho horas','acostarse muy tarde'],['relajarse, meditar, hacer yoga','pasar horas delante de la pantalla'],['hacer pausas','picar entre horas (zwischendurch naschen)'],['—','fumar, beber alcohol']]},
+{id:'gewf',title:'',head:[],flash:'Gesundheit',hidden:true,rows:[
+['comer sano / equilibrado','sich gesund / ausgewogen ernähren'],['la comida rápida / la comida basura','das Fast Food / das Junkfood'],['las bebidas azucaradas / los refrescos','zuckerhaltige Getränke / Limonaden'],['saltarse el desayuno','das Frühstück auslassen'],['ser sedentario/a','sich wenig bewegen'],['picar entre horas','zwischendurch naschen'],['acostarse tarde','spät ins Bett gehen'],['hacer pausas','Pausen machen']]},
+{id:'nom',title:'Gesundheit: Wichtige Nomen und Ausdrücke',head:['Español','Deutsch'],flash:'Gesundheit',rows:[
+['la salud / el bienestar','die Gesundheit / das Wohlbefinden'],['la alimentación','die Ernährung'],['llevar una vida sana','ein gesundes Leben führen'],['estar en forma / mantenerse en forma','fit sein / fit bleiben'],['ponerse en forma','fit werden'],['el gimnasio / el entrenamiento','das Fitnessstudio / das Training']]},
+{id:'rat',title:'Gesundheit: Ratschläge geben und erfragen',head:['Español','Deutsch'],flash:'Ratschläge',rows:[
+['¿Qué me recomiendas / aconsejas?','Was empfiehlst du mir?'],['¿Qué puedo hacer para...?','Was kann ich tun, um ...?'],['¿Tienes algún consejo?','Hast du einen Tipp?'],['Te recomiendo / te aconsejo + Infinitiv','Ich empfehle dir ...'],['Deberías + Infinitiv','Du solltest ...'],['Tienes que / Hay que + Infinitiv','Du musst / Man muss ...'],['Es importante / bueno / mejor + Infinitiv','Es ist wichtig / gut / besser ...'],['Lo mejor es + Infinitiv','Am besten ist ...'],['¿Por qué no + Verb?','Warum ... du nicht?'],['¡Come más fruta! ¡Haz deporte!','Iss mehr Obst! Mach Sport!']]},
+{id:'ment',title:'Adverbien auf -mente',head:['Español','Deutsch'],flash:'Adverbien -mente',rows:[
+['regularmente','regelmäßig'],['diariamente','täglich'],['normalmente','normalerweise'],['tranquilamente','ruhig'],['lentamente','langsam'],['rápidamente','schnell'],['sanamente','gesund'],['fácilmente','leicht'],['especialmente','besonders'],['realmente','wirklich'],['perfectamente','perfekt'],['afortunadamente','glücklicherweise'],['sinceramente','ehrlich gesagt']]}
+];
+var BLOG=[
+{id:'aufbau',title:'Aufbau und Redemittel',head:['Teil','Redemittel'],rows:[
+['1. Begrüßung + Bezug zum Beitrag','¡Hola, Lucía! · Acabo de leer tu entrada sobre... · Me ha gustado mucho tu entrada. · Tu entrada me ha hecho pensar en... · Te entiendo perfectamente.'],
+['2. Eigene Erfahrung','Yo también... / A mí me pasa lo mismo. · Cuando era pequeño/a... · El año pasado yo... · Recuerdo que...'],
+['3. Meinung','En mi opinión... · Creo / Pienso que... · Para mí, lo más importante es... · Estoy de acuerdo contigo. · No estoy de acuerdo porque...'],
+['4. Vergleich früher – heute','Antes..., pero hoy en día... · Ya no... · Ahora... más / menos que antes.'],
+['5. Ratschlag','Te recomiendo... · Deberías... · Imperativ (¡Prueba...! ¡Haz...!) · Es importante...'],
+['6. Frage an die Person','¿Y tú? ¿Qué opinas? · ¿Cuál era tu...? · ¿Qué deporte te gusta?'],
+['7. Abschluss','¡Un saludo desde Austria! · Un abrazo, · ¡Hasta pronto! · ¡Mucha suerte! + Name']]},
+{id:'konn',title:'Verbindungswörter',head:['Español','Deutsch'],flash:'Verbindungswörter',rows:[
+['además / también','außerdem / auch'],['porque / como','weil / da'],['por eso / así que','deshalb / also'],['pero / sin embargo','aber / jedoch'],['por un lado... por otro lado','einerseits ... andererseits'],['primero / después / al final','zuerst / danach / zum Schluss'],['por ejemplo','zum Beispiel'],['en lugar de + Infinitiv','statt zu ...'],['en resumen / en definitiva','zusammengefasst']]},
+{id:'blogfc',hidden:true,flash:'Blog-Redemittel',head:[],rows:[
+['Acabo de leer tu entrada sobre...','Ich habe gerade deinen Beitrag über ... gelesen.'],['Me ha gustado mucho tu entrada.','Dein Beitrag hat mir sehr gefallen.'],['Tu entrada me ha hecho pensar en...','Dein Beitrag hat mich an ... denken lassen.'],['Te entiendo perfectamente.','Ich verstehe dich total.'],['A mí me pasa lo mismo.','Mir geht es genauso.'],['Recuerdo que...','Ich erinnere mich, dass ...'],['En mi opinión...','Meiner Meinung nach ...'],['Para mí, lo más importante es...','Für mich ist das Wichtigste ...'],['Estoy de acuerdo contigo.','Ich stimme dir zu.'],['¡Un saludo desde Austria!','Viele Grüße aus Österreich!'],['¡Hasta pronto!','Bis bald!']]}
+];
+var GRAM=[
+{id:'impind',title:'Imperfecto oder indefinido?',head:['','Imperfecto','Indefinido'],html:true,rows:[
+['Wofür?','Beschreibung, Gewohnheit, Hintergrund („wie es war“)','einmaliges, abgeschlossenes Ereignis („was passiert ist“)'],
+['Signalwörter','antes, de pequeño, siempre, normalmente, a menudo, todos los días, mientras','un día, una vez, de repente, ayer, el año pasado, en 2015, al final'],
+['Beispiel','De pequeño <b>vivía</b> en un pueblo y <b>jugaba</b> mucho fuera.','Un día <b>me caí</b> del árbol y <b>fui</b> al hospital.'],
+['Endungen','-ar: jug<b>aba</b>, jug<b>abas</b>, jug<b>aba</b>, jug<b>ábamos</b>, jug<b>abais</b>, jug<b>aban</b><br>-er/-ir: viv<b>ía</b>, viv<b>ías</b>, viv<b>ía</b>, viv<b>íamos</b>, viv<b>íais</b>, viv<b>ían</b>','-ar: jugu<b>é</b>, jug<b>aste</b>, jug<b>ó</b>, jug<b>amos</b>, jug<b>asteis</b>, jug<b>aron</b><br>-er/-ir: com<b>í</b>, com<b>iste</b>, com<b>ió</b>, com<b>imos</b>, com<b>isteis</b>, com<b>ieron</b>'],
+['Unregelmäßig','ser → era, ir → iba, ver → veía','ser/ir → fui, tener → tuve, hacer → hice, estar → estuve, poder → pude, poner → puse, decir → dije, dar → di']]},
+{id:'imp',title:'Imperativo afirmativo',head:['Infinitiv','tú','vosotros','usted','ustedes'],html:true,rows:[
+['comer','come','comed','coma','coman'],['beber','bebe','bebed','beba','beban'],['caminar','camina','caminad','camine','caminen'],['dormir','duerme','dormid','duerma','duerman'],['hacer','<b>haz</b>','haced','haga','hagan'],['ir','<b>ve</b>','id','vaya','vayan'],['salir','<b>sal</b>','salid','salga','salgan'],['tener','<b>ten</b>','tened','tenga','tengan'],['poner','<b>pon</b>','poned','ponga','pongan'],['relajarse','relája<b>te</b>','relaja<b>os</b>','reláje<b>se</b>','relájen<b>se</b>']]},
+{id:'impfc',hidden:true,flash:'Imperativ (tú)',head:[],rows:[
+['comer → tú','¡Come!'],['beber → tú','¡Bebe!'],['dormir → tú','¡Duerme!'],['hacer → tú','¡Haz!'],['ir → tú','¡Ve!'],['salir → tú','¡Sal!'],['tener → tú','¡Ten!'],['poner → tú','¡Pon!'],['decir → tú','¡Di!'],['venir → tú','¡Ven!'],['ser → tú','¡Sé!'],['relajarse → tú','¡Relájate!'],['acostarse → tú','¡Acuéstate!'],['hacer → usted','¡Haga!'],['ir → ustedes','¡Vayan!'],['comer → vosotros','¡Comed!'],['relajarse → vosotros','¡Relajaos!']]}
+];
+var CHECK=['Alle Punkte der Angabe beantwortet?','Wortzahl eingehalten?','Begrüßung, Bezug zum Beitrag, Frage zurück und Abschluss mit Namen da?','Imperfecto für Gewohnheiten, indefinido für einmalige Ereignisse?','Imperativ richtig, vor allem die unregelmäßigen Formen (haz, ve, sal, ten, pon)?','Mindestens drei Verbindungswörter verwendet (además, por eso, sin embargo ...)?','Akzente und umgedrehte Frage- und Ausrufezeichen (¿ ? ¡ !) gesetzt?','Adjektive an das Nomen angepasst (<em>una vida sana, los niños pequeños</em>)?','<em>me duele</em> + Einzahl, <em>me duelen</em> + Mehrzahl?'];
+
+/* ---------- text trainer ---------- */
+var PRE=/^([¡¿"«(]*)(.*?)([.,;:!?"»)…]*)$/;
+function tokenize(p){return p.split(/\s+/).filter(Boolean).map(function(t){var m=t.match(PRE);return{pre:m[1],core:m[2],post:m[3]}})}
+function rng(seed){return function(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296}}
+function shuffled(n,seed){var a=[],r=rng(seed),i;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function norm(w,strict){w=w.toLowerCase().replace(/[¡¿!?.,;:"«»()…]/g,'');if(!strict)w=w.normalize('NFD').replace(/[̀-ͯ]/g,'');return w}
+
+function buildTrainer(T){
+  var wrap=document.getElementById('texts');
+  var box=document.createElement('div');
+  box.innerHTML='<h3>'+T.title+'</h3><div class="angabe">'+T.angabe+'</div>'+
+  '<div class="bar modes"><button data-m="read" class="on">Lesen</button><button data-m="cloze">Lücken</button><button data-m="first">Anfangsbuchstaben</button><button data-m="write">Selbst schreiben</button></div>'+
+  '<div class="bar ctl-cloze hidden"><label>Lücken <input type="range" min="10" max="100" step="10" value="30" class="lvl"> <span class="lvlv">30 %</span></label><button class="shuf">Neu mischen</button><button class="all">Alle aufdecken</button></div>'+
+  '<div class="bar ctl-first hidden"><button class="all">Alle aufdecken</button><span class="best">Tipp auf ein Wort, um es zu sehen.</span></div>'+
+  '<div class="bar ctl-read"><label><input type="checkbox" class="roles"> Absatz-Funktion anzeigen</label></div>'+
+  '<div class="comment view"></div>'+
+  '<div class="writebox hidden"><div class="bar"><label>Was schreibst du? <select class="part"></select></label><label><input type="checkbox" class="strict" checked> Akzente streng prüfen</label></div>'+
+  '<p class="best hint"></p><textarea placeholder="Schreib hier aus dem Gedächtnis …" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>'+
+  '<div class="bar"><button class="primary chkbtn">Prüfen</button><button class="clear">Leeren</button><button class="peek">Vorlage kurz zeigen</button></div><div class="result"></div></div>'+
+  '<h3>Was der Text zeigt</h3><ul class="notes">'+T.notes.map(function(n){return'<li>'+n+'</li>'}).join('')+'</ul>';
+  wrap.appendChild(box);
+
+  var paras=T.paras.map(tokenize),flat=[];
+  paras.forEach(function(p,pi){p.forEach(function(w,wi){w.p=pi;w.i=flat.length;flat.push(w)})});
+  var wordIdx=flat.filter(function(w){return w.core}).map(function(w){return w.i});
+  var st={mode:'read',lvl:30,seed:load(T.id+'_seed',7),revealed:{}};
+  var view=box.querySelector('.view'),q=function(s){return box.querySelector(s)};
+
+  function hiddenSet(){var o=shuffled(wordIdx.length,st.seed),n=Math.round(wordIdx.length*st.lvl/100),s={};for(var k=0;k<n;k++)s[wordIdx[o[k]]]=1;return s}
+  function head(){return'<div class="comment-head"><span class="avatar">'+T.author[0]+'</span><span><strong>'+T.author+'</strong><br><small>Comentario</small></span></div>'}
+  function render(){
+    var hid=st.mode==='cloze'?hiddenSet():null,showRoles=q('.roles').checked&&st.mode==='read';
+    var h=head();
+    paras.forEach(function(p,pi){
+      h+=(showRoles?'<div class="best" style="margin-top:10px">▸ '+T.roles[pi]+'</div>':'')+'<p>';
+      p.forEach(function(w){
+        var c=esc(w.core),hide=false;
+        if(w.core&&!st.revealed[w.i]&&(st.mode==='first'||(hid&&hid[w.i])))hide=true;
+        h+=esc(w.pre);
+        if(hide){
+          if(st.mode==='first'){var ch=Array.from(w.core);h+='<span class="gap first" data-i="'+w.i+'">'+esc(ch[0])+'_'.repeat(ch.length-1)+'</span>'}
+          else h+='<span class="gap" data-i="'+w.i+'" style="min-width:'+(Array.from(w.core).length*.58+.4)+'em">'+c+'</span>';
+        }else if(st.revealed[w.i]&&st.mode!=='read')h+='<span class="rev" data-i="'+w.i+'">'+c+'</span>';
+        else h+=c;
+        h+=esc(w.post)+' ';
+      });
+      h+='</p>';
+    });
+    view.innerHTML=h;
+  }
+  view.addEventListener('click',function(e){var g=e.target.closest('.gap,.rev');if(!g)return;var i=g.dataset.i;if(st.revealed[i])delete st.revealed[i];else st.revealed[i]=1;render()});
+  box.querySelectorAll('.modes button').forEach(function(b){b.onclick=function(){
+    box.querySelectorAll('.modes button').forEach(function(x){x.classList.toggle('on',x===b)});
+    st.mode=b.dataset.m;st.revealed={};
+    q('.ctl-cloze').classList.toggle('hidden',st.mode!=='cloze');
+    q('.ctl-first').classList.toggle('hidden',st.mode!=='first');
+    q('.ctl-read').classList.toggle('hidden',st.mode!=='read');
+    view.classList.toggle('hidden',st.mode==='write');
+    q('.writebox').classList.toggle('hidden',st.mode!=='write');
+    render();if(st.mode==='write')updHint();
+  }});
+  q('.roles').onchange=render;
+  q('.lvl').oninput=function(){st.lvl=+this.value;q('.lvlv').textContent=st.lvl+' %';st.revealed={};render()};
+  q('.shuf').onclick=function(){st.seed=Math.floor(Math.random()*1e9);save(T.id+'_seed',st.seed);st.revealed={};render()};
+  box.querySelectorAll('.all').forEach(function(b){b.onclick=function(){flat.forEach(function(w){if(w.core)st.revealed[w.i]=1});render()}});
+
+  /* write mode */
+  var sel=q('.part');
+  sel.innerHTML='<option value="all">Ganzer Text</option>'+T.paras.map(function(p,i){return'<option value="'+i+'">Absatz '+(i+1)+': '+T.roles[i]+'</option>'}).join('');
+  function refTokens(){var v=sel.value;return v==='all'?flat.filter(function(w){return w.core}):paras[+v].filter(function(w){return w.core})}
+  function key(){return T.id+'_best_'+sel.value}
+  function updHint(){var b=load(key(),null);q('.hint').textContent=(sel.value==='all'?'Ganzer Text':'Absatz '+(+sel.value+1))+' · '+refTokens().length+' Wörter'+(b!==null?' · Bestes Ergebnis: '+b+' %':'');q('.result').innerHTML='';}
+  sel.onchange=function(){q('textarea').value='';updHint()};
+  q('.clear').onclick=function(){q('textarea').value='';q('.result').innerHTML=''};
+  q('.peek').onclick=function(){
+    var ref=refTokens(),txt=ref.map(function(w){return esc(w.pre+w.core+w.post)}).join(' ');
+    q('.result').innerHTML='<div class="comment"><p>'+txt+'</p></div>';
+    setTimeout(function(){q('.result').innerHTML=''},5000);
+  };
+  q('.chkbtn').onclick=function(){
+    var strict=q('.strict').checked,ref=refTokens(),R=ref.map(function(w){return norm(w.core,strict)});
+    var A=q('textarea').value.split(/\s+/).map(function(w){return norm(w,strict)}).filter(Boolean);
+    var n=R.length,m=A.length,i,j,L=[];
+    for(i=0;i<=n;i++){L.push(new Array(m+1).fill(0))}
+    for(i=n-1;i>=0;i--)for(j=m-1;j>=0;j--)L[i][j]=R[i]===A[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+    var ok={};i=0;j=0;while(i<n&&j<m){if(R[i]===A[j]){ok[i]=1;i++;j++}else if(L[i+1][j]>=L[i][j+1])i++;else j++}
+    var hits=Object.keys(ok).length,pct=n?Math.round(hits/n*100):0,extra=m-hits;
+    var prev=load(key(),null);if(prev===null||pct>prev)save(key(),pct);
+    var out=ref.map(function(w,k){return esc(w.pre)+'<span class="'+(ok[k]?'ok':'miss')+'">'+esc(w.core)+'</span>'+esc(w.post)}).join(' ');
+    var msg=pct>=95?'¡Perfecto! Den Teil kannst du.':pct>=80?'Sehr gut! Übe nur noch die roten Wörter.':pct>=50?'Guter Anfang. Wiederhole mit dem Lückentext und probier es nochmal.':'Lies den Teil nochmal laut und übe zuerst mit Lücken.';
+    q('.result').innerHTML='<p class="score">'+hits+' von '+n+' Wörtern richtig ('+pct+' %)'+(extra>0?' · '+extra+' Wörter zu viel oder falsch':'')+'</p><p class="best">'+msg+' Grün = richtig, rot = fehlt oder falsch geschrieben.</p><div class="comment"><p>'+out+'</p></div>';
+    updBest();
+    function updBest(){var b=load(key(),null);var h=q('.hint');h.textContent=h.textContent.replace(/ · Bestes Ergebnis: \d+ %/,'')+(b!==null?' · Bestes Ergebnis: '+b+' %':'')}
+  };
+  render();
+}
+TEXTS.forEach(buildTrainer);
+
+/* ---------- tables with cover ---------- */
+function buildTable(container,D){
+  if(D.hidden)return;
+  var el=document.createElement('div');
+  var h=(D.title?'<h3>'+D.title+'</h3>':'')+'<div class="tbar">Verdecken: '+D.head.map(function(hd,i){return hd?'<button data-c="'+i+'">'+hd+'</button>':''}).join('')+'<button class="show">Alle aufdecken</button></div>';
+  h+='<div class="wrap"><table><thead><tr>'+D.head.map(function(x){return'<th>'+x+'</th>'}).join('')+'</tr></thead><tbody>';
+  D.rows.forEach(function(r){h+='<tr>'+r.map(function(c,i){return'<td data-c="'+i+'">'+(D.html?c:esc(c))+'</td>'}).join('')+'</tr>'});
+  h+='</tbody></table></div>';
+  el.innerHTML=h;container.appendChild(el);
+  el.querySelectorAll('.tbar button[data-c]').forEach(function(b){b.onclick=function(){
+    var c=b.dataset.c,on=!b.classList.contains('on');b.classList.toggle('on',on);
+    el.querySelectorAll('td[data-c="'+c+'"]').forEach(function(td){td.classList.toggle('cov',on);td.classList.remove('peek')});
+  }});
+  el.querySelector('.show').onclick=function(){el.querySelectorAll('td.cov').forEach(function(td){td.classList.add('peek')})};
+  el.querySelector('tbody').addEventListener('click',function(e){var td=e.target.closest('td.cov');if(td)td.classList.toggle('peek')});
+}
+VOCAB.forEach(function(D){buildTable(document.getElementById('vocab'),D)});
+BLOG.forEach(function(D){buildTable(document.getElementById('blogTables'),D)});
+GRAM.forEach(function(D){buildTable(document.getElementById('gramTables'),D)});
+
+/* ---------- flashcards ---------- */
+var POOL=[];
+VOCAB.concat(BLOG,GRAM).forEach(function(D){if(D.flash)D.rows.forEach(function(r){POOL.push({cat:D.flash,es:r[0],de:r[1]})})});
+var cats=[];POOL.forEach(function(c){if(cats.indexOf(c.cat)<0)cats.push(c.cat)});
+var fcCat=document.getElementById('fcCat'),fcDir=document.getElementById('fcDir'),fcCard=document.getElementById('fcCard');
+fcCat.innerHTML='<option value="">Alle ('+POOL.length+')</option>'+cats.map(function(c){return'<option>'+c+'</option>'}).join('');
+var fc={queue:[],total:0,known:0,flipped:false};
+function fcStart(){
+  var list=POOL.filter(function(c){return!fcCat.value||c.cat===fcCat.value});
+  var o=shuffled(list.length,Math.floor(Math.random()*1e9));
+  fc.queue=o.map(function(i){return list[i]});fc.total=list.length;fc.known=0;fc.flipped=false;fcShow();
+}
+function fcShow(){
+  document.getElementById('fcProg').style.width=(fc.total?fc.known/fc.total*100:0)+'%';
+  document.getElementById('fcInfo').textContent=fc.known+' von '+fc.total+' gewusst · '+fc.queue.length+' übrig';
+  var acts=document.getElementById('fcActions');
+  if(!fc.queue.length){fcCard.innerHTML='<div class="done">¡Fantástico! Alle Karten gewusst.</div><button class="primary" onclick="fcStart()">Nochmal von vorne</button>';acts.classList.add('hidden');return}
+  acts.classList.remove('hidden');
+  var c=fc.queue[0],es=fcDir.value==='es',front=es?c.es:c.de,back=es?c.de:c.es;
+  fcCard.innerHTML='<div class="best">'+c.cat+'</div><div class="front">'+esc(front)+'</div>'+(fc.flipped?'<div class="back">'+esc(back)+'</div>':'<div class="hint">Erst im Kopf beantworten, dann tippen zum Umdrehen</div>');
+}
+function fcFlip(){if(fc.queue.length){fc.flipped=!fc.flipped;fcShow()}}
+function fcAnswer(knew){if(!fc.queue.length)return;var c=fc.queue.shift();if(knew)fc.known++;else fc.queue.splice(Math.min(3,fc.queue.length),0,c);fc.flipped=false;fcShow()}
+fcCard.onclick=function(e){if(e.target.tagName!=='BUTTON')fcFlip()};
+document.getElementById('fcAgain').onclick=function(){fcAnswer(false)};
+document.getElementById('fcKnow').onclick=function(){fcAnswer(true)};
+document.getElementById('fcRestart').onclick=fcStart;fcCat.onchange=fcStart;fcDir.onchange=function(){fc.flipped=false;fcShow()};
+document.addEventListener('keydown',function(e){
+  var t=e.target.tagName;if(t==='TEXTAREA'||t==='INPUT'||t==='SELECT')return;
+  var r=document.querySelector('.fc').getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+  if(e.code==='Space'){e.preventDefault();fcFlip()}else if(e.key==='1')fcAnswer(false);else if(e.key==='2')fcAnswer(true);
+});
+fcStart();
+
+/* ---------- checklist ---------- */
+var chk=load('check',{});
+document.getElementById('checklist').innerHTML=CHECK.map(function(c,i){return'<li><label><input type="checkbox" data-i="'+i+'"'+(chk[i]?' checked':'')+'><span>'+c+'</span></label></li>'}).join('');
+document.getElementById('checklist').addEventListener('change',function(e){chk[e.target.dataset.i]=e.target.checked;save('check',chk)});
+</script>
+<script>
+(function(){
+  var btns=document.querySelectorAll('.seg button');
+  function show(v){
+    document.getElementById('viewSheet').hidden=v!=='viewSheet';
+    document.getElementById('viewTrainer').hidden=v!=='viewTrainer';
+    btns.forEach(function(b){b.classList.toggle('on',b.dataset.v===v);b.setAttribute('aria-selected',b.dataset.v===v)});
+    try{localStorage.setItem('spa26_view',v)}catch(e){}
+  }
+  btns.forEach(function(b){b.onclick=function(){show(b.dataset.v);window.scrollTo({top:0,behavior:'instant'})}});
+  var v='viewSheet';try{v=localStorage.getItem('spa26_view')||v}catch(e){}
+  show(v);
+})();
+</script>
+</body>
+</html>
